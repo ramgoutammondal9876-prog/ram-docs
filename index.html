@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>RAM DOCS 🚩</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:sans-serif}
+#lock{height:100vh;background:#111;color:#fff;display:flex;justify-content:center;align-items:center}
+.box{background:#222;border:2px solid #ff6600;padding:30px;border-radius:16px;text-align:center;width:90%;max-width:350px}
+.box input{width:100%;padding:12px;margin:12px 0;background:#000;color:#0f0;border:1px solid #ff6600;border-radius:8px;text-align:center}
+.box button{width:100%;padding:12px;background:#ff6600;color:#fff;border:none;border-radius:8px;font-weight:bold}
+#app{display:none;background:#fef3e2;min-height:100vh}
+#top{background:#fff;border-bottom:3px solid #ff6600;padding:10px;position:sticky;top:0}
+#logo{color:#ff6600;font-weight:900;font-size:22px}
+#bar{display:flex;flex-wrap:wrap;gap:5px;background:#fff7ed;padding:8px;border-radius:10px;margin-top:8px}
+#bar button{padding:6px 10px;background:#fff;border:1px solid #ffcc8a;border-radius:6px}
+#page{max-width:800px;margin:20px auto;background:#fff;padding:50px;min-height:900px;box-shadow:0 5px 20px #0002;outline:none;font-size:14pt}
+</style>
+</head>
+<body>
+<div id="lock"><div class="box"><h2 style="color:#ff6600">RAM DOCS 🚩</h2><p>Private Access</p><input id="k" placeholder="Secret Key"><button onclick="go()">UNLOCK</button><p id="e" style="color:red;font-size:12px"></p></div></div>
+<div id="app"><div id="top"><div id="logo">RAM DOCS 🚩 - Permanent</div><div id="bar"><button onclick="document.execCommand('bold')"><b>B</b></button><button onclick="document.execCommand('italic')"><i>I</i></button><button onclick="document.execCommand('underline')"><u>U</u></button><button onclick="document.execCommand('insertUnorderedList')">List</button><button onclick="html2pdf().from(document.getElementById('page')).save('RamDocs.pdf')" style="background:#ff6600;color:#fff">PDF</button></div></div><div id="page" contenteditable="true"><h1 style="color:#ff6600">Jai Shree Ram 🚩</h1><p>Eta tomar permanent RAM DOCS! Ebar sobaike link pathate parbe.</p></div></div>
+<script>
+const S="jai-shree-ram-108";
+function go(){let v=document.getElementById('k').value, q=new URLSearchParams(location.search).get('key');if(v==S||q==S){document.getElementById('lock').style.display='none';document.getElementById('app').style.display='block';history.replaceState({},'',location.pathname+'?key='+S)}else{document.getElementById('e').innerText="Wrong Key!"}}
+window.onload=()=>{if(new URLSearchParams(location.search).get('key')==S)go()}
+</script>
+</body>
+</html>
